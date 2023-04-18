@@ -8,7 +8,11 @@ const PORT = 4002;
 
 // middleware
 app.use(express.json());
-app.use(cors((origin = ["http://localhost:3000", "https://web-production-11881.up.railway.app/"])));
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://web-production-11881.up.railway.app/'],
+  optionsSuccessStatus: 200
+}));
+
 app.use(router);
 
 app.listen(PORT, () => {
